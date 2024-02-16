@@ -1,26 +1,20 @@
-import java.util.Scanner;
-public class EvenSumFibonacci {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter the value of N: ");
-        int n = scanner.nextInt();
-        long evenSum = findEvenSumFibonacci(n);
-        System.out.println("Sum of even Fibonacci numbers up to " + n + " is: " + evenSum);
-        
-        scanner.close();
+public class Oddsumfibonacciseries {
+  public static void main(String[] args) {
+    int n = 3; 
+    int firstTerm = 0, secondTerm = 1, nextTerm = 0, sum = 0;
+
+    System.out.println("Fibonacci series up to " + n + ":");
+
+    while (nextTerm < n) {
+      System.out.print(nextTerm + " ");
+      if (nextTerm % 2 != 0) {
+        sum += nextTerm;
+      }
+      firstTerm = secondTerm;
+      secondTerm = nextTerm;
+      nextTerm = firstTerm + secondTerm;
     }
-    public static long findEvenSumFibonacci(int n) {
-        long sum = 0;
-        long prev = 0;
-        long curr = 1;
-        while (curr <= n) {
-            if (curr % 2 == 0) {
-                sum += curr;
-            }
-            long next = prev + curr;
-            prev = curr;
-            curr = next;
-        }
-        return sum;
-    }
+
+    System.out.println("\nSum of odd numbers in the Fibonacci series up to " + n + ": " + sum);
+  }
 }
